@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">Brand</a>
+  <a class="navbar-brand" href="/">Brand</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -16,11 +16,16 @@
           <i class="fa fa-user" aria-hidden="true"></i>
           <span>User Management</span>
         </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">User Account</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Logout</a>
-        </div>
+        {{# if login }}
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/user/profile">User Account</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="/user/logout">Logout</a>
+            {{ else }}
+              <a class="dropdown-item" href="/user/signup">Sign Up</a>
+              <a class="dropdown-item" href="/user/signin">Sign In</a>
+          </div>
+        {{/ if }}
       </li>
     </ul>
   </div>
